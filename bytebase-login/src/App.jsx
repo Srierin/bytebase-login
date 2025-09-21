@@ -376,21 +376,7 @@ function App() {
             </a>
           </div>
 
-          {/* 开发提示 */}
-          <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <div className="flex items-start">
-              <AlertCircle className="w-5 h-5 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" />
-              <div className="text-sm text-yellow-800">
-                <p className="font-medium mb-1">开发提示：</p>
-                <p>要启用真实的GitHub登录，请：</p>
-                <ol className="list-decimal list-inside mt-1 space-y-1">
-                  <li>在GitHub上创建OAuth应用</li>
-                  <li>设置环境变量 VITE_GITHUB_CLIENT_ID</li>
-                  <li>配置后端处理token交换</li>
-                </ol>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

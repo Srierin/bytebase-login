@@ -46,7 +46,7 @@ function App() {
   // 如果正在加载，显示加载状态
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-blue-400 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-600 to-blue-500 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
           <CardContent className="p-8 text-center">
             <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
@@ -61,7 +61,7 @@ function App() {
   // 如果已登录，显示用户信息（响应式布局）
   if (isAuthenticated && user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-blue-400 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-600 to-blue-500 flex items-center justify-center p-4">
         <Card className={`w-full ${isMobile ? 'max-w-sm' : 'max-w-md'}`}>
           <CardContent className={`${isMobile ? 'p-6' : 'p-8'}`}>
             {/* 设备信息显示 */}
@@ -134,7 +134,7 @@ function App() {
             {/* 操作按钮 */}
             <div className="space-y-3">
               <Button 
-                className={`w-full bg-blue-600 hover:bg-blue-700 text-white ${isMobile ? 'h-10 text-sm' : 'h-12'}`}
+                className={`w-full bg-indigo-600 hover:bg-indigo-700 text-white ${isMobile ? 'h-10 text-sm' : 'h-12'}`}
                 onClick={() => alert('欢迎使用Bytebase！这里可以跳转到主应用。')}
               >
                 进入Bytebase
@@ -170,98 +170,43 @@ function App() {
     )
   }
 
-  // 桌面端和平板端布局
+  // === 桌面端布局：左右各占 50% ===
   return (
     <div className="min-h-screen flex">
-      {/* 左侧插画区域 */}
-      <div className={`${isTablet ? 'hidden' : 'hidden lg:flex'} lg:flex-1 bg-gradient-to-br from-blue-500 via-purple-600 to-blue-400 relative overflow-hidden`}>
-        {/* 背景装饰元素 */}
-        <div className="absolute inset-0">
-          {/* 浮动的装饰圆点 */}
-          <div className="absolute top-20 left-20 w-4 h-4 bg-green-400 rounded-full animate-bounce"></div>
-          <div className="absolute top-32 right-32 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-40 left-40 w-2 h-2 bg-pink-400 rounded-full animate-ping"></div>
-          <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-cyan-400 rounded-full animate-bounce delay-300"></div>
-          <div className="absolute top-1/3 right-1/4 w-5 h-5 bg-purple-300 rounded-full animate-pulse delay-500"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-green-300 rounded-full animate-bounce delay-700"></div>
-        </div>
-        
-        {/* 主要内容区域 */}
-        <div className="flex flex-col justify-center items-center text-white p-12 z-10 relative">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4 leading-tight">
-              Change, Query, Secure, Govern
-            </h1>
-            <p className="text-xl opacity-90">
-              all Databases in a Single Place
-            </p>
-          </div>
-          
-          {/* 插画区域 - 使用CSS创建类似的卡通形象 */}
-          <div className="relative">
-            {/* Welcome横幅 */}
-            <div className="bg-purple-600 text-white px-8 py-3 rounded-full text-xl font-bold mb-8 transform -rotate-3 shadow-lg animate-pulse">
-              WELCOME
-            </div>
-            
-            {/* 卡通人物区域 */}
-            <div className="flex space-x-8 items-end mb-6">
-              {/* DBA角色 */}
-              <div className="text-center transform hover:scale-105 transition-transform duration-300">
-                <div className="w-20 h-20 bg-white rounded-full mb-2 flex items-center justify-center shadow-lg">
-                  <div className="text-2xl">👨‍💼</div>
-                </div>
-                <div className="bg-white text-blue-600 px-3 py-1 rounded text-sm font-bold shadow-md">
-                  DBA
-                </div>
-              </div>
-              
-              {/* DEV角色 */}
-              <div className="text-center transform hover:scale-105 transition-transform duration-300">
-                <div className="w-20 h-20 bg-white rounded-full mb-2 flex items-center justify-center shadow-lg">
-                  <div className="text-2xl">👨‍💻</div>
-                </div>
-                <div className="bg-white text-blue-600 px-3 py-1 rounded text-sm font-bold shadow-md">
-                  DEV
-                </div>
-              </div>
-            </div>
-            
-            {/* 底部按钮 */}
-            <div className="flex space-x-4">
-              <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:bg-green-600 transition-colors cursor-pointer">
-                APPROVE
-              </div>
-              <div className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg hover:bg-red-600 transition-colors cursor-pointer">
-                DEPLOY
-              </div>
-            </div>
-          </div>
+      {/* 左侧插画区域 - 占 50% 宽度 */}
+      <div
+        className="relative w-1/2 min-h-screen bg-no-repeat bg-cover bg-center bg-top"
+        style={{
+          backgroundImage: `url('https://dalleproduse.blob.core.windows.net/private/images/cc881318-aa02-4350-92cd-5587f22844cd/generated_00.png?se=2025-09-23T05%3A25%3A27Z&sig=sV36d%2BjMr6QlWM%2B%2BNohb%2F477x7J0Vrd0EMScP1Psn1o%3D&ske=2025-09-27T00%3A12%3A39Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2025-09-20T00%3A12%3A39Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02')`,
+        }}
+      >
+        <div className="w-full text-center pt-10 md:pt-12 lg:pt-14 px-6">
+          <h1 className="text-white font-extrabold leading-tight text-[30px] sm:text-[36px] md:text-[44px] lg:text-[48px] tracking-wide drop-shadow-[0_2px_0_rgba(0,0,0,0.18)]">
+            Change, Query, Secure, Govern
+            <br className="hidden sm:block" /> all Databases in a Single Place
+          </h1>
         </div>
       </div>
 
-      {/* 右侧登录表单区域 */}
-      <div className={`flex-1 ${isTablet ? 'lg:flex-none lg:w-full' : 'lg:flex-none lg:w-1/2 xl:w-2/5'} bg-white flex items-center justify-center p-8`}>
-        <div className={`w-full ${isTablet ? 'max-w-lg' : 'max-w-md'}`}>
-          {/* 设备信息显示 */}
-          <div className="flex items-center justify-center mb-4 text-xs text-gray-400">
-            {isTablet ? (
-              <>📱 平板端 ({windowSize.width}×{windowSize.height})</>
-            ) : (
-              <>🖥️ 桌面端 ({windowSize.width}×{windowSize.height})</>
-            )}
-          </div>
-
+      {/* 右侧登录表单区域 - 占 50% 宽度 */}
+      <div className="w-1/2 bg-white flex items-center justify-center p-12">
+        <div className="w-full max-w-sm">
           {/* Logo和标题 */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center mr-3">
-                <Square className="w-6 h-6 text-white" />
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              {/* Bytebase Logo - 黑色圆形，内有聊天气泡 */}
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mr-3">
+                <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center relative">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <div className="w-2 h-2 bg-black rounded-full ml-1"></div>
+                  {/* 聊天气泡尾巴 */}
+                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-white transform rotate-45"></div>
+                </div>
               </div>
-              <span className="text-2xl font-bold">Bytebase</span>
+              <span className="text-3xl font-bold text-black">Bytebase</span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">欢迎</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold text-black mb-3">欢迎</h2>
+            <p className="text-gray-600 text-base">
               登录 Bytebase 以继续使用 Bytebase Hub。
             </p>
           </div>
@@ -285,37 +230,51 @@ function App() {
           )}
 
           {/* 第三方登录按钮 */}
-          <div className="space-y-3 mb-6">
+          <div className="space-y-3 mb-8">
             <Button
               onClick={handleGoogleLogin}
               variant="outline"
-              className="w-full h-12 flex items-center justify-center space-x-3 border-gray-300 hover:bg-gray-50 transition-colors"
+              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white"
             >
-              <Chrome className="w-5 h-5 text-gray-600" />
-              <span>继续使用 Google</span>
+              {/* Google 图标 - 彩色G */}
+              <div className="w-5 h-5 mr-3 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" className="w-5 h-5">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+              </div>
+              <span className="text-gray-700">继续使用 Google</span>
             </Button>
             
             <Button
               onClick={loginWithGitHub}
               variant="outline"
-              className="w-full h-12 flex items-center justify-center space-x-3 border-gray-300 hover:bg-gray-50 transition-colors"
+              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white"
               disabled={loading}
             >
               {loading ? (
-                <Loader2 className="w-5 h-5 animate-spin text-gray-600" />
+                <Loader2 className="w-5 h-5 animate-spin text-gray-600 mr-3" />
               ) : (
-                <Github className="w-5 h-5 text-gray-600" />
+                <Github className="w-5 h-5 text-gray-600 mr-3" />
               )}
-              <span>{loading ? '登录中...' : '继续使用 GitHub'}</span>
+              <span className="text-gray-700">{loading ? '登录中...' : '继续使用 GitHub'}</span>
             </Button>
             
             <Button
               onClick={handleMicrosoftLogin}
               variant="outline"
-              className="w-full h-12 flex items-center justify-center space-x-3 border-gray-300 hover:bg-gray-50 transition-colors"
+              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white"
             >
-              <Square className="w-5 h-5 text-blue-600" />
-              <span>继续使用 Microsoft Account</span>
+              {/* Microsoft 图标 - 四色方块 */}
+              <div className="w-5 h-5 mr-3 grid grid-cols-2 gap-0.5">
+                <div className="w-2 h-2 bg-red-500"></div>
+                <div className="w-2 h-2 bg-green-500"></div>
+                <div className="w-2 h-2 bg-blue-500"></div>
+                <div className="w-2 h-2 bg-yellow-500"></div>
+              </div>
+              <span className="text-gray-700">继续使用 Microsoft Account</span>
             </Button>
           </div>
 
@@ -339,15 +298,15 @@ function App() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="请输入邮箱地址"
-                className="w-full h-12"
+                placeholder=""
+                className="w-full h-12 text-base border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                 onKeyPress={(e) => e.key === 'Enter' && handleEmailLogin()}
               />
             </div>
             
             <Button
               onClick={handleEmailLogin}
-              className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+              className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white transition-colors text-base font-medium"
               disabled={loading}
             >
               {loading ? (
@@ -363,10 +322,10 @@ function App() {
 
           {/* 底部链接 */}
           <div className="text-center mt-6">
-            <span className="text-gray-600">没有账户？</span>
+            <span className="text-gray-600 text-sm">没有账户？</span>
             <a 
               href="#" 
-              className="text-blue-600 hover:text-blue-700 ml-1 transition-colors"
+              className="text-indigo-600 hover:text-indigo-700 text-sm transition-colors ml-1"
               onClick={(e) => {
                 e.preventDefault()
                 alert('注册功能需要后端支持。在实际应用中，这里会跳转到注册页面。')
@@ -375,8 +334,6 @@ function App() {
               注册
             </a>
           </div>
-
-         
         </div>
       </div>
     </div>

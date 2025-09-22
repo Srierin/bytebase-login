@@ -172,10 +172,10 @@ function App() {
 
   // === 桌面端布局：左右各占 50% ===
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex mobile-responsive-container">
       {/* 左侧插画区域 - 占 50% 宽度 */}
       <div
-        className="relative w-1/2 min-h-screen bg-no-repeat bg-cover bg-center bg-top"
+        className="relative w-1/2 min-h-screen bg-no-repeat bg-cover bg-center bg-top mobile-hero-section"
         style={{
           backgroundImage: `url('https://dalleproduse.blob.core.windows.net/private/images/cc881318-aa02-4350-92cd-5587f22844cd/generated_00.png?se=2025-09-23T05%3A25%3A27Z&sig=sV36d%2BjMr6QlWM%2B%2BNohb%2F477x7J0Vrd0EMScP1Psn1o%3D&ske=2025-09-27T00%3A12%3A39Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2025-09-20T00%3A12%3A39Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02')`,
         }}
@@ -189,8 +189,8 @@ function App() {
       </div>
 
       {/* 右侧登录表单区域 - 占 50% 宽度 */}
-      <div className="w-1/2 bg-white flex items-center justify-center p-12">
-        <div className="w-full max-w-sm">
+      <div className="w-1/2 bg-white flex items-center justify-center p-12 mobile-form-section">
+        <div className="w-full max-w-sm mobile-form-container">
           {/* Logo和标题 */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-6">
@@ -234,7 +234,7 @@ function App() {
             <Button
               onClick={handleGoogleLogin}
               variant="outline"
-              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white"
+              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white mobile-button"
             >
               {/* Google 图标 - 彩色G */}
               <div className="w-5 h-5 mr-3 flex items-center justify-center">
@@ -251,7 +251,7 @@ function App() {
             <Button
               onClick={loginWithGitHub}
               variant="outline"
-              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white"
+              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white mobile-button"
               disabled={loading}
             >
               {loading ? (
@@ -265,7 +265,7 @@ function App() {
             <Button
               onClick={handleMicrosoftLogin}
               variant="outline"
-              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white"
+              className="w-full h-12 flex items-center justify-start px-4 border border-gray-300 hover:bg-gray-50 transition-colors text-base font-normal bg-white mobile-button"
             >
               {/* Microsoft 图标 - 四色方块 */}
               <div className="w-5 h-5 mr-3 grid grid-cols-2 gap-0.5">
@@ -291,7 +291,7 @@ function App() {
           {/* 邮箱登录表单 */}
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2 mobile-label">
                 电子邮件地址 *
               </label>
               <Input
@@ -299,14 +299,14 @@ function App() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder=""
-                className="w-full h-12 text-base border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="w-full h-12 text-base border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 mobile-input"
                 onKeyPress={(e) => e.key === 'Enter' && handleEmailLogin()}
               />
             </div>
             
             <Button
               onClick={handleEmailLogin}
-              className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white transition-colors text-base font-medium"
+              className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white transition-colors text-base font-medium mobile-button"
               disabled={loading}
             >
               {loading ? (
@@ -325,7 +325,7 @@ function App() {
             <span className="text-gray-600 text-sm">没有账户？</span>
             <a 
               href="#" 
-              className="text-indigo-600 hover:text-indigo-700 text-sm transition-colors ml-1"
+              className="text-indigo-600 hover:text-indigo-700 text-sm transition-colors ml-1 mobile-link"
               onClick={(e) => {
                 e.preventDefault()
                 alert('注册功能需要后端支持。在实际应用中，这里会跳转到注册页面。')

@@ -118,3 +118,232 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* 移动端响应式优化样式 */
+@media screen and (max-width: 768px) {
+  /* 主容器调整为垂直布局 */
+  .mobile-responsive-container {
+    flex-direction: column !important;
+    min-height: 100vh !important;
+  }
+  
+  /* 左侧插图区域在移动端的调整 */
+  .mobile-hero-section {
+    width: 100% !important;
+    min-height: 35vh !important;
+    max-height: 35vh !important;
+    flex: 0 0 35vh !important;
+    order: 1 !important;
+  }
+  
+  /* 右侧登录区域在移动端的调整 */
+  .mobile-form-section {
+    width: 100% !important;
+    flex: 1 !important;
+    padding: 1.5rem !important;
+    order: 2 !important;
+    min-height: 65vh !important;
+  }
+  
+  /* 登录表单容器 */
+  .mobile-form-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* 按钮样式优化 */
+  .mobile-button {
+    min-height: 48px !important;
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 0.75rem !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  /* 输入框样式优化 */
+  .mobile-input {
+    min-height: 48px !important;
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid #d1d5db !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  /* 标签样式 */
+  .mobile-label {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.5rem !important;
+    color: #374151 !important;
+  }
+  
+  /* 链接样式 */
+  .mobile-link {
+    padding: 8px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    display: inline-block !important;
+  }
+  
+  /* 标题调整 */
+  h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* 小屏幕手机优化 */
+@media screen and (max-width: 480px) {
+  .mobile-hero-section {
+    min-height: 30vh !important;
+    max-height: 30vh !important;
+    flex: 0 0 30vh !important;
+  }
+  
+  .mobile-form-section {
+    min-height: 70vh !important;
+    padding: 1rem !important;
+  }
+  
+  h1, h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  .mobile-button, .mobile-input {
+    min-height: 44px !important;
+    font-size: 15px !important;
+  }
+  
+  .mobile-label {
+    font-size: 13px !important;
+  }
+}
+
+/* 极小屏幕优化 */
+@media screen and (max-width: 320px) {
+  .mobile-form-section {
+    padding: 0.75rem !important;
+  }
+  
+  .mobile-button, .mobile-input {
+    min-height: 42px !important;
+    font-size: 14px !important;
+  }
+  
+  h1, h2 {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* 平板竖屏优化 */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .mobile-hero-section {
+    width: 45% !important;
+  }
+  
+  .mobile-form-section {
+    width: 55% !important;
+    padding: 2rem !important;
+  }
+}
+
+/* 横屏手机优化 */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .mobile-hero-section {
+    min-height: 25vh !important;
+    max-height: 25vh !important;
+    flex: 0 0 25vh !important;
+  }
+  
+  .mobile-form-section {
+    min-height: 75vh !important;
+  }
+  
+  .mobile-button {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* 可访问性和用户体验优化 */
+@media screen and (max-width: 768px) {
+  /* 防止水平滚动 */
+  body, html {
+    overflow-x: hidden !important;
+  }
+  
+  /* 确保触摸目标足够大 */
+  button, input, a, select, textarea {
+    min-height: 44px !important;
+  }
+  
+  /* 焦点状态优化 */
+  .mobile-button:focus, .mobile-input:focus, .mobile-link:focus {
+    outline: 2px solid #3b82f6 !important;
+    outline-offset: 2px !important;
+  }
+  
+  /* 输入框焦点状态 */
+  .mobile-input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+  }
+  
+  /* 按钮悬停效果 */
+  .mobile-button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* 按钮点击反馈 */
+  .mobile-button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .mobile-button {
+    border: 2px solid currentColor !important;
+  }
+  
+  .mobile-input {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* 减少动画（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-button, .mobile-input, .mobile-link {
+    transition: none !important;
+  }
+  
+  .mobile-button:hover {
+    transform: none !important;
+  }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .mobile-input {
+    background-color: #1f2937 !important;
+    border-color: #4b5563 !important;
+    color: #f9fafb !important;
+  }
+  
+  .mobile-label {
+    color: #f9fafb !important;
+  }
+}
